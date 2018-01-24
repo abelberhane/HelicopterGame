@@ -78,7 +78,27 @@ namespace Helicopter_Game
         // function used to change the UFO's placement in the game
         private void changeUFO()
         {
+            index += 1; // increase the index by 1
 
+            if (index > 3)
+            {
+                // if the index is greater than 3, set it back to 1
+                index = 1;
+            }
+
+            // logic how the aliens switch images. Uses the index to alternate pics.
+            switch(index)
+            {
+                case 1: 
+                    ufo.Image = Properties.Resources.alien1;
+                    break;
+                case 2:
+                    ufo.Image = Properties.Resources.alien2;
+                    break;
+                case 3:
+                    ufo.Image = Properties.Resources.alien3;
+                    break;
+            }
         }
 
         // function used to generate the bullets
