@@ -31,13 +31,42 @@ namespace Helicopter_Game
         // logic for controlling the key being pressed down
         private void keyisdown(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode == Keys.Up)
+            {
+                // player presses the Up Key so it changes goup to true
+                goup = true;
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                // player presses the Down Key so it changes go down to true
+                godown = true;
+            }
+            if (e.KeyCode == Keys.Space && shot == false)
+            {
+                // if the player presses space and shot is false, we turn shot to true
+                makeBullet();
+                shot = true;
+            }
         }
 
         // logic for controlling the key up button
         private void keyisup(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Up)
+            {
+                // player presses the Up Key so it changes goup to false
+                goup = false;
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                // player presses the Down Key so it changes go down to false
+                godown = false;
+            }
+            if (shot == true)
+            {
+                // if the shot is true, we will turn it to false so they have to press to shoot again
+                shot = false;
+            }
         }
 
         // logic for the game timer
