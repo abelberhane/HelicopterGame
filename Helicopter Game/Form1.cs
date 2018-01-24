@@ -16,5 +16,20 @@ namespace Helicopter_Game
         {
             InitializeComponent();
         }
+
+        private void keyisdown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void keyisup(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void gametick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

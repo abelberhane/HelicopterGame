@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.player = new System.Windows.Forms.PictureBox();
             this.pillar1 = new System.Windows.Forms.PictureBox();
             this.pillar2 = new System.Windows.Forms.PictureBox();
             this.ufo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pillar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pillar2)).BeginInit();
@@ -82,12 +85,29 @@
             this.ufo.TabIndex = 3;
             this.ufo.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "00";
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 20;
+            this.gameTimer.Tick += new System.EventHandler(this.gametick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(797, 372);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ufo);
             this.Controls.Add(this.pillar2);
             this.Controls.Add(this.pillar1);
@@ -95,6 +115,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Helicopter Game - Abel\'s Dojo";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pillar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pillar2)).EndInit();
@@ -110,6 +132,8 @@
         private System.Windows.Forms.PictureBox pillar1;
         private System.Windows.Forms.PictureBox pillar2;
         private System.Windows.Forms.PictureBox ufo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 
