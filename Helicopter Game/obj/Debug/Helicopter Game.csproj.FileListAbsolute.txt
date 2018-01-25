@@ -1,0 +1,9 @@
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\bin\Debug\Helicopter Game.exe.config
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\bin\Debug\Helicopter Game.exe
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\bin\Debug\Helicopter Game.pdb
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter Game.csprojResolveAssemblyReference.cache
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter_Game.Form1.resources
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter_Game.Properties.Resources.resources
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter Game.csproj.GenerateResource.Cache
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter Game.exe
+C:\Users\aberhane\Desktop\HelicopterGame\Helicopter Game\obj\Debug\Helicopter Game.pdb

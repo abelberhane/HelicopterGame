@@ -72,7 +72,77 @@ namespace Helicopter_Game
         // logic for the game timer
         private void gametick(object sender, EventArgs e)
         {
+            // Moving the first pillar to the left part of the screen
+            pillar1.Left -= speed;
+            // Moving the second pillar to the left part of the screen
+            pillar2.Left -= speed;
+            // Moving the UFO to the left part of the screen
+            ufo.Left -= speed;
+            // Showing the score
+            label1.Text = "Score: " + score;
 
+            // If up is true, deduct from the top location and allow to move up
+            if (goup)
+            {
+                player.Top -= playerSpeed;
+            }
+
+            // If down is true, deduct from the bottom location and allow to move down
+            if(godown)
+            {
+                player.Top += playerSpeed;
+            }
+
+            // If the pillar goes off the left, it is replaced on the right side
+            if(pillar1.Left < -150)
+            {
+                pillar1.Left = 900;
+            }
+
+            // If the pillar goes off the left, it is replaced on the right side
+            if (pillar2.Left < -150)
+            {
+                pillar2.Left = 1000;
+            }
+
+            // Logic that checks if you hit the UFO's or Pillars
+            if(ufo.Left < -5 || 
+                player.Bounds.IntersectsWith(ufo.Bounds) ||
+                player.Bounds.IntersectsWith(pillar1.Bounds) ||
+                player.Bounds.IntersectsWith(pillar2.Bounds)
+                )
+            {
+                // Game timer will stop if you and show you the final message with your score
+                gameTimer.Stop();
+                MessageBox.Show("You failed the mission soldier, you Killed " + score + "Ufo's");
+            }
+
+            // Logic for the controls
+            foreach(Control X in this.Controls)
+            {
+                // Logic for displaying the bullets and how they move to the right of the screen
+                if(X is PictureBox && X.Tag == "bullet")
+                {
+                    X.Left += 15;
+                    if(X.Left > 900)
+                    {
+                        // Once its left the view of the form, dispose of the bullet
+                        this.Controls.Remove(X);
+                        X.Dispose();
+                    }
+
+                    // Logic for what occurs when the bullet hits a UFO and incrementing your score, creating new targets
+                    if(X.Bounds.IntersectsWith(ufo.Bounds))
+                    {
+                        score += 1;
+                        this.Controls.Remove(X);
+                        X.Dispose();
+                        ufo.Left = 1000;
+                        ufo.Top = rand.Next(5, 330) - ufo.Height;
+                        changeUFO();
+                    }
+                }
+            }
         }
 
         // function used to change the UFO's placement in the game
@@ -104,7 +174,26 @@ namespace Helicopter_Game
         // function used to generate the bullets
         private void makeBullet()
         {
+            // New picture box class
+            PictureBox bullet = new PictureBox();
 
+            // Color of the bullet
+            bullet.BackColor = System.Drawing.Color.DarkOrange;
+
+            // Height of the bullet in pixels
+            bullet.Height = 5;
+
+            // Width of the bullet in pixels
+            bullet.Left = player.Left + player.Width;
+
+            // Placing the bullet in front of the player
+            bullet.Top = player.Top + player.Height / 2;
+
+            // Placing the bullet in the middle height of the player
+            bullet.Tag = "bullet";
+
+            // Adds the picture box bullet to the scene
+            this.Controls.Add(bullet);
         }
     }
 }
