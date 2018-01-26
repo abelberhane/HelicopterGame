@@ -114,7 +114,7 @@ namespace Helicopter_Game
             {
                 // Game timer will stop if you and show you the final message with your score
                 gameTimer.Stop();
-                MessageBox.Show("You failed the mission soldier, you Killed " + score + "Ufo's");
+                MessageBox.Show("You failed the mission soldier, you Killed " + score + " Ufo's");
             }
 
             // Logic for the controls
